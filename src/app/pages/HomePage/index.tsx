@@ -52,116 +52,208 @@ export function HomePage() {
         drawerOpen={isDrawerOpen}
         onCloseDrawer={() => dispatch(actions.setDrawerOpen())}
       >
-        <StyledHeading>DashBoard</StyledHeading>
-        <Grid container spacing={2}>
-          <Grid item md={12} lg={9} sm={12} xs={12}>
-            <Grid
-              container
-              sx={{
-                position: 'relative',
-                marginBottom: '16px',
-              }}
-              spacing={2}
-            >
-              <StyledIconWrapper>
-                <img src={ActiveMarina} alt="Active Marina" />
-              </StyledIconWrapper>
-              <Grid item xs={12} sm={6} md={8}>
-                <StyledCard
-                  sx={{
-                    backgroundColor: '#008E8A',
-                    height: '320px',
-                  }}
-                >
-                  <StyledCardHeader>Good Morning, Eleanor</StyledCardHeader>
-                  <StyledParagrapgh>
-                    Welcome to your daily event calendar. Here you can see all
-                    the upcoming events, meeting and create new events.
-                  </StyledParagrapgh>
-                  <StyledButton
-                    variant="contained"
-                    buttontype="primary"
-                    disableElevation
-                    size="large"
-                    sx={{
-                      position: 'absolute',
-                      bottom: '20px',
-                      left: '20px',
-                    }}
-                  >
-                    + Create event
-                  </StyledButton>
-                </StyledCard>
-              </Grid>
-              <Grid item xs={12} md={4} sm={6}>
-                <StyledCard
-                  sx={{
-                    backgroundColor: '#141518',
-                    border: '1.5px solid #1F1F25',
-                    height: '320px',
-                  }}
-                >
-                  <StyledCardHeader>Reminder</StyledCardHeader>
-                  <SwitchButton>
-                    <div>
-                      <p>Training session</p>
-                      <p>10:00 am</p>
-                    </div>
-                  </SwitchButton>
-                  <SwitchButton>
-                    <div>
-                      <p>Training session</p>
-                      <p>10:00 am</p>
-                    </div>
-                  </SwitchButton>
-                  <StyledButton
-                    variant="outlined"
-                    buttontype="secondary"
-                    disableElevation
-                    size="large"
-                    sx={{
-                      position: 'absolute',
-                      bottom: '20px',
-                      left: '20px',
-                    }}
-                  >
-                    + Add new
-                  </StyledButton>
-                </StyledCard>
-              </Grid>
-            </Grid>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <StyledHeading>DashBoard</StyledHeading>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={5} sm={6}>
-                <StyledCard
+              <Grid item md={12} lg={9} sm={12} xs={12}>
+                <Grid
+                  container
                   sx={{
-                    background: '#141518',
-                    border: '1.5px solid #1F1F25',
-                    borderRadius: '15px',
+                    position: 'relative',
                     marginBottom: '16px',
-                    height: '400px',
                   }}
+                  spacing={2}
                 >
-                  <StyledSchedulerWrapper>
-                    <StyledCardHeader>Contacts</StyledCardHeader>
-                    <p>View all</p>
-                  </StyledSchedulerWrapper>
-                  {isLoading && <p>Loading...</p>}
-                  {contactList &&
-                    contactList.length > 0 &&
-                    contactList.map((contact, index) => (
-                      <StyledScheduleContent
-                        key={index}
-                        style={{
-                          display: 'flex',
+                  <StyledIconWrapper>
+                    <img src={ActiveMarina} alt="Active Marina" />
+                  </StyledIconWrapper>
+                  <Grid item xs={12} sm={6} md={8}>
+                    <StyledCard
+                      sx={{
+                        backgroundColor: '#008E8A',
+                        height: '320px',
+                      }}
+                    >
+                      <StyledCardHeader>Good Morning, Eleanor</StyledCardHeader>
+                      <StyledParagrapgh>
+                        Welcome to your daily event calendar. Here you can see
+                        all the upcoming events, meeting and create new events.
+                      </StyledParagrapgh>
+                      <StyledButton
+                        variant="contained"
+                        buttontype="primary"
+                        disableElevation
+                        size="large"
+                        sx={{
+                          position: 'absolute',
+                          bottom: '20px',
+                          left: '20px',
                         }}
                       >
-                        <Avatar src={contact.picture.thumbnail} />
-                        <StyledContactListContent>
-                          <h4>
-                            {contact.name.first} {contact.name.last}
-                          </h4>
-                          <p>Coach</p>
-                        </StyledContactListContent>
+                        + Create event
+                      </StyledButton>
+                    </StyledCard>
+                  </Grid>
+                  <Grid item xs={12} md={4} sm={6}>
+                    <StyledCard
+                      sx={{
+                        backgroundColor: '#141518',
+                        border: '1.5px solid #1F1F25',
+                        height: '320px',
+                      }}
+                    >
+                      <StyledCardHeader>Reminder</StyledCardHeader>
+                      <SwitchButton>
+                        <div>
+                          <p>Training session</p>
+                          <p>10:00 am</p>
+                        </div>
+                      </SwitchButton>
+                      <SwitchButton>
+                        <div>
+                          <p>Training session</p>
+                          <p>10:00 am</p>
+                        </div>
+                      </SwitchButton>
+                      <StyledButton
+                        variant="outlined"
+                        buttontype="secondary"
+                        disableElevation
+                        size="large"
+                        sx={{
+                          position: 'absolute',
+                          bottom: '20px',
+                          left: '20px',
+                        }}
+                      >
+                        + Add new
+                      </StyledButton>
+                    </StyledCard>
+                  </Grid>
+                </Grid>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={5} sm={6}>
+                    <StyledCard
+                      sx={{
+                        background: '#141518',
+                        border: '1.5px solid #1F1F25',
+                        borderRadius: '15px',
+                        marginBottom: '16px',
+                        height: '470px',
+                      }}
+                    >
+                      <StyledSchedulerWrapper>
+                        <StyledCardHeader>Contacts</StyledCardHeader>
+                        <p>View all</p>
+                      </StyledSchedulerWrapper>
+                      {contactList &&
+                        contactList.length > 0 &&
+                        contactList.map((contact, index) => (
+                          <StyledScheduleContent
+                            key={index}
+                            style={{
+                              display: 'flex',
+                            }}
+                          >
+                            <Avatar src={contact.picture.thumbnail} />
+                            <StyledContactListContent>
+                              <h4>
+                                {contact.name.first} {contact.name.last}
+                              </h4>
+                              <p>Coach</p>
+                            </StyledContactListContent>
+                            <div
+                              style={{
+                                flexGrow: 1,
+                                textAlign: 'right',
+                              }}
+                            >
+                              <ThreeDotEllipsisIcon />
+                            </div>
+                          </StyledScheduleContent>
+                        ))}
+                      {contactList.length === 0 && !isLoading && (
+                        <StyledScheduleContent>
+                          <p>No contacts found</p>
+                        </StyledScheduleContent>
+                      )}
+                      {isError && (
+                        <StyledScheduleContent>
+                          <p>There was an error loading the contacts</p>
+                        </StyledScheduleContent>
+                      )}
+                    </StyledCard>
+                  </Grid>
+                  <Grid item xs={12} sm={6} md={7}>
+                    <StyledCard
+                      sx={{
+                        background: '#141518',
+                        border: '1.5px solid #1F1F25',
+                        borderRadius: '15px',
+                        marginBottom: '16px',
+                        height: ['320px', '470px', '470px'],
+                      }}
+                    >
+                      <StyledSchedulerWrapper>
+                        <StyledCardHeader>
+                          Half Year Work Results
+                        </StyledCardHeader>
+                        <p>View all</p>
+                      </StyledSchedulerWrapper>
+                      <Box
+                        sx={{
+                          svg: {
+                            width: '100%',
+                            height: 'auto',
+                          },
+                          width: '100%',
+                          height: '100%',
+                        }}
+                      >
+                        <Chart />
+                      </Box>
+                    </StyledCard>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={3}>
+                <StyledCard
+                  sx={{
+                    backgroundColor: 'transparent',
+                    border: '1.5px solid #008E8A',
+                  }}
+                >
+                  <StyledCalender />
+                  <StyledSchedulerWrapper>
+                    <StyledCardHeader>Schedule</StyledCardHeader>
+                    <p>View all</p>
+                  </StyledSchedulerWrapper>
+                  {ScheduleItems.map((item, index) => (
+                    <StyledCard
+                      sx={{
+                        background: '#141518',
+                        border: '1.5px solid #1F1F25',
+                        borderRadius: '15px',
+                        marginBottom: '16px',
+                      }}
+                      key={index}
+                    >
+                      <StyledSchedulerWrapper>
+                        <Chip
+                          label={item.type}
+                          sx={{
+                            backgroundColor: `${item.typeColor}`,
+                            color: '#fff',
+                            fontWeight: 500,
+                            fontSize: '14px',
+                            borderRadius: '4px',
+                            padding: '5px',
+                            fontFamily: 'Poppins, sans-serif',
+                          }}
+                        />
                         <div
                           style={{
                             flexGrow: 1,
@@ -170,103 +262,18 @@ export function HomePage() {
                         >
                           <ThreeDotEllipsisIcon />
                         </div>
+                      </StyledSchedulerWrapper>
+                      <StyledScheduleContent>
+                        <h4>{item.title}</h4>
+                        <p>{item.time}</p>
                       </StyledScheduleContent>
-                    ))}
-                  {contactList.length === 0 && !isLoading && (
-                    <StyledScheduleContent>
-                      <p>No contacts found</p>
-                    </StyledScheduleContent>
-                  )}
-                  {isError && (
-                    <StyledScheduleContent>
-                      <p>There was an error loading the contacts</p>
-                    </StyledScheduleContent>
-                  )}
-                </StyledCard>
-              </Grid>
-              <Grid item xs={12} sm={6} md={7}>
-                <StyledCard
-                  sx={{
-                    background: '#141518',
-                    border: '1.5px solid #1F1F25',
-                    borderRadius: '15px',
-                    marginBottom: '16px',
-                    height: ['320px', '400px', '400px'],
-                  }}
-                >
-                  <StyledSchedulerWrapper>
-                    <StyledCardHeader>Half Year Work Results</StyledCardHeader>
-                    <p>View all</p>
-                  </StyledSchedulerWrapper>
-                  <Box
-                    sx={{
-                      svg: {
-                        width: '100%',
-                        height: 'auto',
-                      },
-                      width: '100%',
-                      height: '100%',
-                    }}
-                  >
-                    <Chart />
-                  </Box>
+                    </StyledCard>
+                  ))}
                 </StyledCard>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={3}>
-            <StyledCard
-              sx={{
-                backgroundColor: 'transparent',
-                border: '1.5px solid #008E8A',
-              }}
-            >
-              <StyledCalender />
-              <StyledSchedulerWrapper>
-                <StyledCardHeader>Schedule</StyledCardHeader>
-                <p>View all</p>
-              </StyledSchedulerWrapper>
-              {ScheduleItems.map((item, index) => (
-                <StyledCard
-                  sx={{
-                    background: '#141518',
-                    border: '1.5px solid #1F1F25',
-                    borderRadius: '15px',
-                    marginBottom: '16px',
-                  }}
-                  key={index}
-                >
-                  <StyledSchedulerWrapper>
-                    <Chip
-                      label={item.type}
-                      sx={{
-                        backgroundColor: `${item.typeColor}`,
-                        color: '#fff',
-                        fontWeight: 500,
-                        fontSize: '14px',
-                        borderRadius: '4px',
-                        padding: '5px',
-                        fontFamily: 'Poppins, sans-serif',
-                      }}
-                    />
-                    <div
-                      style={{
-                        flexGrow: 1,
-                        textAlign: 'right',
-                      }}
-                    >
-                      <ThreeDotEllipsisIcon />
-                    </div>
-                  </StyledSchedulerWrapper>
-                  <StyledScheduleContent>
-                    <h4>{item.title}</h4>
-                    <p>{item.time}</p>
-                  </StyledScheduleContent>
-                </StyledCard>
-              ))}
-            </StyledCard>
-          </Grid>
-        </Grid>
+          </>
+        )}
       </Main>
     </>
   );

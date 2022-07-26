@@ -46,7 +46,7 @@ export const StyledIconWrapper = styled.div`
     top: -5%;
   }
   @media (min-width: 1600px) {
-    right: 35%;
+    right: 31%;
     top: -5%;
   }
 
