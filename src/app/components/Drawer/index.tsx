@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { IMenu } from 'app/types';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';

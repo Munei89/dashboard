@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StyledButton /> should render and match the snapshot 1`] = `
+<React.Suspense
+  fallback={null}
+>
+  <UNDEFINED>
+    Button
+  </UNDEFINED>
+</React.Suspense>
+`;

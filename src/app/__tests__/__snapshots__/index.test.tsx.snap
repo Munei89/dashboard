@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render and match the snapshot 1`] = `
+<BrowserRouter>
+  <Helmet
+    defaultTitle="Sport Time"
+    defer={true}
+    encodeSpecialCharacters={true}
+    htmlAttributes={
+      Object {
+        "lang": undefined,
+      }
+    }
+    prioritizeSeoTags={false}
+    titleTemplate="%s - Sport Time"
+  >
+    <meta
+      content="A Sport Time application"
+      name="description"
+    />
+  </Helmet>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
+  <Memo(l) />
+</BrowserRouter>
+`;

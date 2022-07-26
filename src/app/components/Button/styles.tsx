@@ -3,15 +3,15 @@ import Button from '@mui/material/Button';
 
 export const StyledBtn = styled(Button)<{
   variant?: string;
-  buttonType?: string;
+  buttontype?: string;
 }>`
   &.MuiButton-root {
     border-radius: 8px;
     font-weight: 600;
     font-size: 18px;
     line-height: 140%;
-    ${({ buttonType }) => {
-      switch (buttonType) {
+    ${({ buttontype }) => {
+      switch (buttontype) {
         case 'primary':
           return `
                     background-color: #fff;

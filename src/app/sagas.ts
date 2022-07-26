@@ -4,7 +4,7 @@ import request from 'utils/request';
 import { actions } from './slice';
 
 export function* getUsers() {
-  const url = 'https://randomuser.me/api/?results=4';
+  const url = 'https://randomuser.me/api/?results=5';
   try {
     const response = yield call(request.get, {
       url: url,

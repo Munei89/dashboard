@@ -80,7 +80,7 @@ export function HomePage() {
                   </StyledParagrapgh>
                   <StyledButton
                     variant="contained"
-                    buttonType="primary"
+                    buttontype="primary"
                     disableElevation
                     size="large"
                     sx={{
@@ -116,7 +116,7 @@ export function HomePage() {
                   </SwitchButton>
                   <StyledButton
                     variant="outlined"
-                    buttonType="secondary"
+                    buttontype="secondary"
                     disableElevation
                     size="large"
                     sx={{
@@ -191,7 +191,7 @@ export function HomePage() {
                     border: '1.5px solid #1F1F25',
                     borderRadius: '15px',
                     marginBottom: '16px',
-                    height: '400px',
+                    height: ['320px', '400px', '400px'],
                   }}
                 >
                   <StyledSchedulerWrapper>

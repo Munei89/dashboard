@@ -1,4 +1,4 @@
-import { IMenu, IScheduleItem, IContact } from './types';
+import { IMenu, IScheduleItem } from './types';
 import {
   HomeIcon,
   CalenderIcon,
