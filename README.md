@@ -1,7 +1,6 @@
-<div align="center" >React Typesscript Dashboard mockup</div>
+<div align="center" >React Typesscript Dashboard mockup
 Originally based on `create-react-app` and `react-boilerplate-cra-template/`
 </div>
----
 
 ## Useful commands
 
