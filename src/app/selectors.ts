@@ -12,5 +12,5 @@ export const selectAppState = createSelector(
   [selectDomain],
   appState => appState,
 );
-
+// eslint-disable-next-line
 export default () => useSelector(select());
