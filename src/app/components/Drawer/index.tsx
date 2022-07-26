@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IMenu } from 'app/types';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -20,6 +20,10 @@ export const StyledDrawer = ({ menu, drawerOpen, onClose }: Props) => {
   const theme = useTheme();
   const isLg = useMediaQuery(theme.breakpoints.up('lg'));
   let drawerWidth;
+
+  useEffect(() => {
+    setActiveLink(window.location.hash);
+  }, []);
 
   if (!isLg) {
     drawerWidth = 107;
