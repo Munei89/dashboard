@@ -16,6 +16,7 @@ export const Main = ({ children, drawerOpen, onCloseDrawer }: Props) => {
     <Box
       sx={{
         display: 'flex',
+        paddingBottom: '50px',
       }}
     >
       <StyledDrawer

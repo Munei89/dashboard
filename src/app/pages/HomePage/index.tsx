@@ -27,6 +27,7 @@ import { selectAppState } from 'app/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { Avatar } from '@mui/material';
 import { StyledChartsIcon } from 'app/assets/icons';
+import { Chart } from 'app/components/Chart/Loadable';
 
 export function HomePage() {
   // @ts-ignore: Unreachable code error
@@ -204,9 +205,12 @@ export function HomePage() {
                         width: '100%',
                         height: 'auto',
                       },
+                      width: '100%',
+                      height: '100%',
                     }}
                   >
-                    <StyledChartsIcon />
+                    {/* <StyledChartsIcon /> */}
+                    <Chart />
                   </Box>
                 </StyledCard>
               </Grid>
