@@ -26,7 +26,6 @@ import { applicationsSaga } from 'app/sagas';
 import { selectAppState } from 'app/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { Avatar } from '@mui/material';
-import { StyledChartsIcon } from 'app/assets/icons';
 import { Chart } from 'app/components/Chart/Loadable';
 
 export function HomePage() {
@@ -209,7 +208,6 @@ export function HomePage() {
                       height: '100%',
                     }}
                   >
-                    {/* <StyledChartsIcon /> */}
                     <Chart />
                   </Box>
                 </StyledCard>
