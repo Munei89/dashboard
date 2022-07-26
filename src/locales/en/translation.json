@@ -1,3 +1,8 @@
 {
-  "title": "welcome"
+  "title": "Good Morning,",
+  "dashboard": "Dashboard",
+  "introduction": "Welcome to your daily event calendar. Here you can see all the upcoming events,meeting and create new events.",
+  "reminder": "Reminder",
+  "create_event": "Create Event",
+  "contacts": "Contacts"
 }

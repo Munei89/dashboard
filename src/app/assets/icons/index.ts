@@ -4,3 +4,6 @@ export { Users as UsersIcon } from './Users';
 export { Messeges as MessegesIcon } from './Messeges';
 export { Settings as SettingsIcon } from './Settings';
 export { ActiveMarina as ActiveMarinaIcon } from './ActiveMarina';
+export { ThreeDotEllipsis as ThreeDotEllipsisIcon } from './ThreeDotEllipsis';
+export { StyledCharts as StyledChartsIcon } from './Chart';
+export { Menu as MenuIcon } from './Menu';

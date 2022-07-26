@@ -12,6 +12,7 @@ export const StyledCalender = () => {
         <CalendarPicker
           date={date}
           onChange={newDate => date && setDate(newDate)}
+          disableFuture
         />
       </StyledCalenderComponent>
     </LocalizationProvider>

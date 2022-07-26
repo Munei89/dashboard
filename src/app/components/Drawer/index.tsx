@@ -6,32 +6,40 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { Box } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 interface Props {
   menu: IMenu[];
+  drawerOpen: boolean;
+  onClose: () => void;
 }
 
-const drawerWidth = 207;
-
-export const StyledDrawer = ({ menu }: Props) => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+export const StyledDrawer = ({ menu, drawerOpen, onClose }: Props) => {
   const [activeLink, setActiveLink] = useState('');
+  const theme = useTheme();
+  const isLg = useMediaQuery(theme.breakpoints.up('lg'));
+  let drawerWidth;
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  if (!isLg) {
+    drawerWidth = 107;
+  } else {
+    drawerWidth = 207;
+  }
+
   return (
     <Box
       component="nav"
-      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+      sx={{ width: { lg: drawerWidth }, flexShrink: { sm: 0 } }}
       aria-label="menu"
     >
       <Drawer
-        variant="permanent"
-        open={true}
-        onClose={handleDrawerToggle}
+        variant={isLg ? 'permanent' : 'temporary'}
+        open={drawerOpen}
+        anchor="left"
+        onClose={onClose}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
           '& .MuiDrawer-paper': {
@@ -48,11 +56,19 @@ export const StyledDrawer = ({ menu }: Props) => {
             fontSize: '30px',
             padding: '50px',
             lineHeight: '36px',
+            paddingLeft: ['40px', '40px', '40px', '100px'],
+            paddingRight: '0px',
           }}
         >
-          Sport
-          <br />
-          Time
+          {!isLg ? (
+            <>ST</>
+          ) : (
+            <>
+              Sport
+              <br />
+              Time
+            </>
+          )}
         </Box>
         <List>
           {menu.map(({ url, id, icon }) => (
@@ -69,7 +85,10 @@ export const StyledDrawer = ({ menu }: Props) => {
                   justifyContent: 'flex-end',
                 }}
                 href={url}
-                onClick={() => setActiveLink(url)}
+                onClick={() => {
+                  setActiveLink(url);
+                  !isLg && onClose();
+                }}
                 disableTouchRipple
               >
                 <ListItemIcon

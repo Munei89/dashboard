@@ -28,6 +28,8 @@ export const StyledUsername = styled.div`
   color: #fff;
   font-family: 'Poppins', sans-serif;
   text-align: right;
+
+  margin-left: 40px;
   p {
     margin-top: 0;
   }
