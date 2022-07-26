@@ -5,7 +5,7 @@ import { SwitchButton } from '../Loadable';
 
 const renderer = createRenderer();
 
-describe('<StyledDrawer />', () => {
+describe('<SwitchButton />', () => {
   it('should render and match the snapshot', () => {
     renderer.render(<SwitchButton />);
     const renderedOutput = renderer.getRenderOutput();
