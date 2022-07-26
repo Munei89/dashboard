@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { IMenu } from 'app/types';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -9,48 +9,86 @@ import { Box } from '@mui/material';
 
 interface Props {
   menu: IMenu[];
-  window?: () => Window;
 }
 
-const drawerWidth = 240;
+const drawerWidth = 207;
 
-export const StyledDrawer = ({ menu, window }: Props) => {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
+export const StyledDrawer = ({ menu }: Props) => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('');
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
   return (
-    <Drawer
-      container={container}
-      variant="temporary"
-      open={true}
-      onClose={handleDrawerToggle}
-      ModalProps={{
-        keepMounted: true, // Better open performance on mobile.
-      }}
-      sx={{
-        display: { xs: 'block', sm: 'none' },
-        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-      }}
+    <Box
+      component="nav"
+      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+      aria-label="menu"
     >
-      <Box>
-        Sport
-        <br />
-        Time
-      </Box>
-      <List>
-        {menu.map(({ url, id, icon }) => (
-          <ListItem button key={id}>
-            <ListItemButton href={url}>
-              <ListItemIcon>{icon}</ListItemIcon>
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Drawer>
+      <Drawer
+        variant="permanent"
+        open={true}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
+            width: drawerWidth,
+            backgroundColor: 'rgba(4, 4, 21, 1)',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            color: '#fff',
+            fontWeight: '700',
+            fontSize: '30px',
+            padding: '50px',
+            lineHeight: '36px',
+          }}
+        >
+          Sport
+          <br />
+          Time
+        </Box>
+        <List>
+          {menu.map(({ url, id, icon }) => (
+            <ListItem button key={id} sx={{ padding: '0' }}>
+              <ListItemButton
+                sx={{
+                  height: '80px',
+                  border: `${
+                    activeLink === url ? '1.5px solid #008E8A' : '0px'
+                  }`,
+                  borderRadius: '50px',
+                  marginLeft: '-100px',
+                  marginBottom: '16px',
+                  justifyContent: 'flex-end',
+                }}
+                href={url}
+                onClick={() => setActiveLink(url)}
+                disableTouchRipple
+              >
+                <ListItemIcon
+                  sx={{
+                    background: '#292E39',
+                    height: '60px',
+                    width: '60px',
+                    textAlign: 'center',
+                    padding: '16px',
+                    borderRadius: '50px',
+                  }}
+                >
+                  {icon}
+                </ListItemIcon>
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+    </Box>
   );
 };

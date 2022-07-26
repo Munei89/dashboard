@@ -5,10 +5,12 @@ export const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     width: 100%;
+    background: rgba(4, 4, 21, 1);
+    color: #fff;
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   #root {
@@ -18,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.5em;
   }
 
